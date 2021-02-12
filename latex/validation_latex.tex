@@ -1,0 +1,239 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+
+\usetheme{Madrid}
+
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Short title]{hps-java validation plots} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{PF} % Your name
+\institute[SLAC] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+SLAC \\ % Your institution for the title page
+\medskip
+\textit{} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+
+\newcommand{\feepath}{/Users/pbutti/sw/hps-java-validation/analysis/fee_2016_validation}
+\newcommand{\vopath}{/Users/pbutti/sw/hps-java-validation/analysis/v0_2016_validation}
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Validation of pass1-dev-fix branch}
+\begin{small}
+\begin{itemize}
+\item{The pass1-dev-fix branch includes several updates with respect to master:
+\begin{itemize}
+\item{Alignment updates}
+\item{Kalman Filter updates}
+\item{GBL updates as well as GBL refitting via JNA access to C++ library}
+\item{...}
+\end{itemize}
+}
+\item {The branch diverged from master months ago as spinoff for alignment development and then became major testing branch for 2019 data reconstruction (NG's partitions are made with this branch)}
+\item {Merging it checking commit-by-commit is not easy anymore}
+\item {I wrote a small validation code that takes (up to 4) integration tests results and produce comparison plots}
+\item {We can then check how strongly the new changes affect reconstruction}
+\item {There is no 2019 crosscheck (We should deploy one), but I've checked on 2016 V0s and FEE integration tests}
+\item {Current master is already breaking the integration tests as small changes affect the test results.}
+\end{itemize}
+\end{small}
+\end{frame}
+
+\begin{frame}
+\frametitle{V0 plots}
+\begin{columns}[c]
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\vopath/V0_Bottom_Track_Momentum.pdf}\\
+\includegraphics[height=0.45\textheight]{\vopath/V0_Top_Track_Momentum.pdf}\\
+\column{.05\textwidth}
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\vopath/V0_Momentum.pdf}\\
+\includegraphics[height=0.45\textheight]{\vopath/V0_Invariant_Mass.pdf}\\
+\column{.1\textwidth}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{V0 plots}
+\begin{columns}[c]
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\vopath/V0_Track_Number_of_Hits.pdf}\\
+\includegraphics[height=0.45\textheight]{\vopath/V0_Vertex_x.pdf}\\
+\column{.05\textwidth}
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\vopath/V0_Vertex_y.pdf}\\
+\includegraphics[height=0.45\textheight]{\vopath/V0_Vertex_z.pdf}\\
+\column{.1\textwidth}
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%% FEE PLOTS %%%%%%%%%%%%
+\begin{frame}
+\frametitle{FEE plots}
+\begin{columns}[c]
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Bottom_5_Hit_Track_Momentum.pdf}\\
+\includegraphics[height=0.45\textheight]{\feepath/Bottom_6_Hit_Track_Momentum.pdf}\\
+\column{.05\textwidth}
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Top_5_Hit_Track_Momentum.pdf}\\
+\includegraphics[height=0.45\textheight]{\feepath/Top_6_Hit_Track_Momentum.pdf}\\
+\column{.1\textwidth}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{FEE plots}
+\begin{columns}[c]
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Bottom_Track_Momentum.pdf}\\
+\includegraphics[height=0.45\textheight]{\feepath/Bottom_Track_X0.pdf}\\
+\column{.05\textwidth}
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Bottom_Track_Y0.pdf}\\
+\includegraphics[height=0.45\textheight]{\feepath/Bottom_Track_Z0.pdf}\\
+\column{.1\textwidth}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{FEE plots}
+\begin{columns}[c]
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Bottom_Track_Chisq_per_DoF.pdf}\\
+\includegraphics[height=0.45\textheight]{\feepath/Bottom_Track_theta.pdf}\\
+\column{.05\textwidth}
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Bottom_Track_Number_of_Hits.pdf}\\
+\column{.1\textwidth}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{FEE plots}
+\begin{columns}[c]
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Top_Track_Momentum.pdf}\\
+\includegraphics[height=0.45\textheight]{\feepath/Top_Track_X0.pdf}\\
+\column{.05\textwidth}
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Top_Track_Y0.pdf}\\
+\includegraphics[height=0.45\textheight]{\feepath/Top_Track_Z0.pdf}\\
+\column{.1\textwidth}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{FEE plots}
+\begin{columns}[c]
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Top_Track_Chisq_per_DoF.pdf}\\
+\includegraphics[height=0.45\textheight]{\feepath/Top_Track_theta.pdf}\\
+\column{.05\textwidth}
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Top_Track_Number_of_Hits.pdf}\\
+\column{.1\textwidth}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{FEE plots}
+\begin{columns}[c]
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Track_deDx.pdf}\\
+\includegraphics[height=0.45\textheight]{\feepath/Track_theta.pdf}\\
+\column{.05\textwidth}
+\column{.48\textwidth}
+\includegraphics[height=0.45\textheight]{\feepath/Track_momentum.pdf}\\
+\includegraphics[height=0.45\textheight]{\feepath/track_data_time.pdf}\\
+\column{.1\textwidth}
+\end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Conclusions}
+\begin{small}
+\begin{itemize}
+\item {The integration tests plots show a good agreement between master, pass1-dev-fix and reference plots}
+\item {There is no exact agreement, as several things changed during time, but in the stat limits, no appreciable difference is present.}
+\item {Master already diverged from reference, but there is no appreciable difference.}
+\item {Work should be done on the integration tests to increase statistics and this procedure should be automatised and added to the pull requests.}
+\item {Happy to upload the validation code (python) to hps-java if needed. Happy to change the latex format to html if needed.}
+\end{itemize}
+\end{small}
+\end{frame}
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 
