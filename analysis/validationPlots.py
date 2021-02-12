@@ -1,7 +1,6 @@
 import ROOT as r
 import sys,os
-sys.path.append("/Users/pbutti/sw/hpstr/plotUtils")
-sys.path.append("/Users/pbutti/sw/hps-java/alignmentMon")
+sys.path.append("../external")
 
 import utilities as utils
 from plotModResAndKinks import doLegend
